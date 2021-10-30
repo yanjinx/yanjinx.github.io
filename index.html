@@ -6,26 +6,111 @@
 </head>
 <body>
 	<div class="bg">
-		<a href="index2.html"><img src="22.png" class="bt"/></a>
+		<div class="right">
+			<!-- 编号 -->
+			<p class="num">XSC-01-<scan id="numtime"></scan>-212118</p>
+			<!-- 申请时间 -->
+			<p class="shenqing" ><scan id="shenqingtime"></scan> 09:49:00</p>
+			<!-- 开始请假时间 -->
+			<p class="start" ><scan id="startime"></scan></p>
+			<!-- 结束请假时间 -->
+			<p class="over" ><scan id="overtime"></scan></p>
+			<!-- 审核时间 -->
+			<p class="shenhe" ><scan id="shenheT"></scan></p>
+			<a href="index2.html"><img src="22.png" class="bt"/></a>
+		</div>
 	</div>
 	
 </body>
 <style type="text/css">
 .bg{
 	width: 1080px;
-	margin-top: -8px;
-	margin-left: -9px;
-	height: 4692px;
+	margin-top: -38px;
+	margin-left: -8px;
+	height: 4969px;
 	display: block;
 	position: absolute;
 	background: url(index.jpg) no-repeat center;
 }
 .bt{
-	margin-top: 4323px;
-	margin-left: 528px;
+	margin-bottom: 363px;
+	margin-left: 132px;
 	height: 45px;
 	width: 332px;
+	position: absolute;bottom:0;
 
 }
+.right{
+	margin-left: 393px;
+	height: 4108px;
+	width: 614px;
+	/*background-color: red;*/
+	margin-top: 518px;
+}
+.num{
+	padding-top: 26px;
+	letter-spacing: 0px;/*字符间距*/
+	font-size: 33px;
+	margin-left: 92px;
+}
+.shenqing{
+	padding-top: 20px;
+	letter-spacing: 0px;/*字符间距*/
+	font-size: 33px;
+	margin-left: 135px;
+}
+.start{
+	padding-top: 1744px;
+	letter-spacing: 0px;/*字符间距*/
+	font-size: 33px;
+	margin-left: 210px;
+}
+.over{
+	padding-top: 86px;
+	letter-spacing: 0px;/*字符间距*/
+	font-size: 33px;
+	margin-left: 208px;
+}
+.shenhe{
+	padding-top: 1759px;
+	letter-spacing: 0px;/*字符间距*/
+	font-size: 33px;
+	margin-left: 136px;
+}
 </style>
+<script>
+	function time(){//编写获取时间的函数
+		var date = new Date();//创建JS自带的Date日期对象
+	 
+		var year = date.getFullYear();//获取年
+	 
+		var month = date.getMonth()+1;//获取月，注意其范围是0~30，使用时需要加1
+		month=month<10?"0"+month:month;//三则运算符判断是个位数则前面加一个零，好看
+	 
+		var day = date.getDate();//获取日
+		day=day<10?"0"+day:day;
+	 
+	    // 编号
+	    var curnum = year+""+month+""+day;
+		console.log(curnum);//在控制台打印当前时间
+		document.getElementById("numtime").innerHTML=curnum
+		//在控制台打印当前时间
+		var current = year+"-"+month+"-"+day;
+		console.log(current);
+		// 申请时间
+		document.getElementById("shenqingtime").innerHTML=current
+		//开始时间
+		document.getElementById("startime").innerHTML=current
+		// 结束时间
+		document.getElementById("overtime").innerHTML=current
+
+		// 审核时间
+		var currtime = year+"-"+month+"-"+day+" 08:52:19";
+		console.log(current);//在控制台打印当前时间
+		document.getElementById("shenheT").innerHTML=currtime
+		//获取对应ID标签的对象，将变量current显示在对应位置
+	}
+		time();
+		setInterval("time()",1000);//setInterval函数可以延迟一定时间后执行某一函数
+    </script>
 </html>
