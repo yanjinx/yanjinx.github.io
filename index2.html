@@ -38,28 +38,21 @@ p{
 }
 </style>
 <script>
-	function time(){//编写获取时间的函数
-		var date = new Date();//创建JS自带的Date日期对象
-	 
-		var year = date.getFullYear();//获取年
-	 
-		var month = date.getMonth()+1;//获取月，注意其范围是0~30，使用时需要加1
-		month=month<10?"0"+month:month;//三则运算符判断是个位数则前面加一个零，好看
-	 
-		var day = date.getDate();//获取日
+	function time(){
+		var date = new Date();
+		var year = date.getFullYear();
+		var month = date.getMonth()+1;
+		month=month<10?"0"+month:month;
+		var day = date.getDate();
 		day=day<10?"0"+day:day;
-
-		////开始时间
 		var current1 = year+"-"+month+"-"+day+" 09:47";
 		console.log(current1);
 		document.getElementById("startime").innerHTML=current1
-
-		// 结束时间
 		var current2 = year+"-"+month+"-"+day+" 17:47";
 		console.log(current2);
 		document.getElementById("overtime").innerHTML=current2
 	}
 		time();
-		setInterval("time()",1000);//setInterval函数可以延迟一定时间后执行某一函数
+		setInterval("time()",1000);
     </script>
 </html>
